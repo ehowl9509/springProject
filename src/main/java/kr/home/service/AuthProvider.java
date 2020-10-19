@@ -31,7 +31,7 @@ public class AuthProvider implements AuthenticationProvider{
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         String email = authentication.getName();
         String password = authentication.getCredentials().toString();
-        UserVO user = loginsevice.selectUser(email);
+        UserVO user = loginsevice.selectUser(email, password);
         
         // email에 맞는 user가 없거나 비밀번호가 맞지 않는 경우.
         if (null == user ) {

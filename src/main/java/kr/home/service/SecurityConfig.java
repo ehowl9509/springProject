@@ -21,14 +21,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/css/**", "/js/**", "/img/**").permitAll()
+                .antMatchers("/resources/**", "/css/**", "/js/**", "/img/**").permitAll()
+                .antMatchers("/join/**/**", "/home/**/**").permitAll()
                 .antMatchers("/**/**/**").hasRole("USER")
                 .anyRequest().authenticated();
         http.formLogin()
                 .loginPage("/login") // default
                 .loginProcessingUrl("/authenticate")
                 .failureUrl("/login?error") // default
-                .defaultSuccessUrl("/home")
+                .defaultSuccessUrl("/home/main")
                 .usernameParameter("email")
                 .passwordParameter("password")
                 .permitAll();

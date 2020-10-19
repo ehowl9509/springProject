@@ -11,9 +11,9 @@ public class LoginService {
 	
 	@Autowired
 	UserReposiry userReposiry;
-	public UserVO selectUser(String email) {
+	public UserVO selectUser(String email, String password) {
 		
-		UserVO userVO = userReposiry.findByEmail(email);
+		UserVO userVO = userReposiry.findByEmailAndPassword(email, password);
 		
 		return userVO;
 	}

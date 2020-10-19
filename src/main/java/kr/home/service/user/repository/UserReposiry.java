@@ -8,5 +8,5 @@ import kr.home.service.user.vo.UserVO;
 @Repository
 public interface UserReposiry extends JpaRepository<UserVO, Long>{
 
-	public UserVO findByEmail(String email);	
+	public UserVO findByEmailAndPassword(String email, String password);	
 }
